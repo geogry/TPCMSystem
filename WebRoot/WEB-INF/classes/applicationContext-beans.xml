@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	<bean id="noticeService" class="com.techpark.cm.service.impl.NoticeServiceImpl">
+		<property name="noticeDao" ref="noticeDao"/>
+	</bean>
+	<bean id="userService" class="com.techpark.cm.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao"/>
+	</bean>
+	<bean id="postService" class="com.techpark.cm.service.impl.PostServiceImpl">
+		<property name="postDao" ref="postDao"/>
+	</bean>
+	<bean id="elementService" class="com.techpark.cm.service.impl.ElementServiceImpl">
+		<property name="elementDao" ref="elementDao"/>
+	</bean>
+	<bean id="typeService" class="com.techpark.cm.service.impl.TypeServiceImpl">
+		<property name="typeDao" ref="typeDao"/>
+	</bean>
+	<bean id="lockerService" class="com.techpark.cm.service.impl.LockerServiceImpl">
+		<property name="lockerDao" ref="lockerDao"/>
+	</bean>
+	<bean id="messageService" class="com.techpark.cm.service.impl.MessageServiceImpl">
+		<property name="messageDao" ref="messageDao"/>
+	</bean>
+	<bean id="passBorrowService" class="com.techpark.cm.service.impl.PassBorrowServiceImpl">
+		<property name="passBorrowDao" ref="passBorrowDao"/>
+	</bean>
+	<bean id="passPorService" class="com.techpark.cm.service.impl.PassPorServiceImpl">
+		<property name="passPorDao" ref="passPorDao"/>
+	</bean>
+	<bean id="refuseBorrowService" class="com.techpark.cm.service.impl.RefuseBorrowServiceImpl">
+		<property name="refuseBorrowDao" ref="refuseBorrowDao"/>
+	</bean>
+	<bean id="tempBorrowService" class="com.techpark.cm.service.impl.TempBorrowServiceImpl">
+		<property name="tempBorrowDao" ref="tempBorrowDao"/>
+	</bean>
+	<bean id="refusePorService" class="com.techpark.cm.service.impl.RefusePorServiceImpl">
+		<property name="refusePorDao" ref="refusePorDao"/>
+	</bean>
+	<bean id="tempPorService" class="com.techpark.cm.service.impl.TempPorServiceImpl">
+		<property name="tempPorDao" ref="tempPorDao"/>
+	</bean>
+	<bean id="tempElementService" class="com.techpark.cm.service.impl.TempElementServiceImpl">
+		<property name="tempElementDao" ref="tempElementDao"/>
+	</bean>
+	<bean id="imageService" class="com.techpark.cm.service.impl.ImageServiceImpl">
+		<property name="imageDao" ref="imageDao"/>
+	</bean>
+</beans>

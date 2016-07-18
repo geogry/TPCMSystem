@@ -1,0 +1,48 @@
+@charset "utf-8";
+body{
+	overflow:hidden;
+	overflow-x:hidden;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding:0;
+	width:1366px;
+	height:885px;
+	background-color:#FFF;
+	font-size:12px;
+	font-family:"microsoft yahei",simhei,arial;
+	color:#222;
+	background-repeat: no-repeat;
+}
+#topbanner{
+	width:1366px;
+	height:150px;
+	background:url(../images/topbanner.jpg);
+	}
+#line{
+	width:100%;
+	height:2px;
+	background:#FFF;
+	}
+#nextbar{
+	width:100%;
+	height:10px;
+	background-color: #fff6c5;
+	}
+#gradient{
+	width:100%;
+	min-height:500px;
+	height:auto;
+    filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150)  progid:DXImageTransform.Microsoft.gradient(startcolorstr=red,endcolorstr=blue,gradientType=0);
+    -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=red,endcolorstr=blue,gradientType=0);/*IE8*/
+    background:red; /* 一些不支持背景渐变的浏览器 */
+    background:-moz-linear-gradient(top, white, rgba(200, 255, 255, 0.5));
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(#fff), to(rgba(131, 165, 243, 0.5)));
+    background:-o-linear-gradient(top, white, rgba(255, 255, 255, 0.5));
+	}
+#maincontent{
+	width:100%;
+	min-height:500px;
+	height:auto;
+	}

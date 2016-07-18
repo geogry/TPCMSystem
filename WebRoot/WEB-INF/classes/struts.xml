@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.multipart.maxSize" value="10485760"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="listNotices" />
+        
+       	<global-results>
+       		<result name="commonError">/WEB-INF/jsp/error.jsp</result>
+       	</global-results>
+       	
+       	<global-exception-mappings>
+       		<exception-mapping result="commonError" exception="com.techpark.cm.exception.AppException"/>
+       	</global-exception-mappings>
+        
+        <action name="loginInput">
+        	<result>/WEB-INF/jsp/login.jsp</result>
+        </action>
+        
+        <action name="exit" class="exit">
+        	<result name="success" type="redirect">listNotices</result>
+        </action>
+        
+        <action name="registerInput">
+        	<result>/WEB-INF/jsp/register.jsp</result>
+        </action>
+        
+        <action name="listNotices" class="noticeAction">
+        	<result name="success">/WEB-INF/jsp/index.jsp</result>
+        </action>
+        
+        <action name="login" class="loginAction">
+        	<result name="super_success">/WEB-INF/jsp/superAdmin.jsp</result>
+        	<result name="admin_success">/WEB-INF/jsp/admin.jsp</result>
+        	<result name="user_success">/WEB-INF/jsp/user.jsp</result>
+        	<result name="error">/WEB-INF/jsp/login.jsp</result>
+        </action>
+        
+        <action name="register" class="userAction" method="addUser">
+        	<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+        </action>
+    </package>
+    
+    <package name="common" namespace="/common" extends="struts-default">
+    	<action name="showUser" class="userAction" method="showUser">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="modifyUser" class="userAction" method="modifyUser">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="modifyPass" class="userAction" method="modifyPass">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showOldMessage" class="messageAction" method="showOldMessage">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showNewMessage" class="messageAction" method="showNewMessage">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="deleteMessage" class="messageAction" method="deleteMessage">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="checkMessage" class="messageAction" method="checkMessage">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showAllPassBorrows" class="borrowAction" method="showAllPassBorrows">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showAllPassPors" class="porAction" method="showAllPassPors">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showTypes" class="typeAction" method="showTypes">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showElements" class="elementAction" method="showElements">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="deletePassBorrow" class="borrowAction" method="deletePassBorrow">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="deleteRefuseBorrow" class="borrowAction" method="deleteRefuseBorrow">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="deleteRefusePor" class="porAction" method="deleteRefusePor">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    </package>
+    
+    <package name="user" namespace="/user" extends="struts-default">
+    	<action name="showNewMessage" class="messageAction" method="showMewMessage">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="borrow" class="borrowAction" method="borrow">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showTempBorrows" class="borrowAction" method="showTempBorrows">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showPassBorrows" class="borrowAction" method="showPassBorrows">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showReturnPassBorrows" class="borrowAction" method="showReturnPassBorrows">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showRefuseBorrows" class="borrowAction" method="showRefuseBorrows">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="por" class="porAction" method="por">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showTempPors" class="porAction" method="showTempPors">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showPassPors" class="porAction" method="showPassPors">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showRefusePors" class="porAction" method="showRefusePors">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="returnElement" class="borrowAction" method="returnElement">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="deleteTempBorrow" class="borrowAction" method="deleteTempBorrow">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="deleteTempPor" class="porAction" method="deleteTempPor">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    </package>
+    
+    <package name="admin" namespace="/admin" extends="struts-default">
+    	<action name="showRegisteUsers" class="auditAction" method="showRegisteUsers">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showTempBorrows" class="auditAction" method="showTempBorrows">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showTempPors" class="auditAction" method="showTempPors">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="agreeUser" class="auditAction" method="agreeUser">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="refuseUser" class="auditAction" method="refuseUser">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="agreeBorrow" class="auditAction" method="agreeBorrow">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="refuseBorrow" class="auditAction" method="refuseBorrow">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="agreePor" class="auditAction" method="agreePor">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="refusePor" class="auditAction" method="refusePor">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showAllRefuseBorrows" class="borrowAction" method="showAllRefuseBorrows">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showAllRefusePors" class="porAction" method="showAllRefusePors">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    </package>
+    
+    <package name="superadmin" namespace="/superadmin" extends="struts-default">
+    	<action name="showNotices" class="noticeAction" method="showNotices">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showLockers" class="lockerAction" method="showLockers">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showUsers" class="userAction" method="showUsers">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showAdmins" class="userAction" method="showAdmins">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="deleteLocker" class="lockerAction" method="deleteLocker">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="deleteUser" class="userAction" method="deleteUser">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="deleteType" class="typeAction" method="deleteType">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="addAdmin" class="userAction" method="addAdmin">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="addType" class="typeAction" method="addType">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="addLocker" class="lockerAction" method="addLocker">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="addNotice" class="noticeAction" method="addNotice">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="addElement" class="elementAction" method="addElement">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="intoStore" class="elementAction" method="intoStore">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="deleteElement" class="elementAction" method="deleteElement">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="deletePassPor" class="porAction" method="deletePassPor">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="deleteNotice" class="noticeAction" method="deleteNotice">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="showAllImage" class="imageAction" method="showAllImage">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    	
+    	<action name="changeImage" class="imageAction">
+    		<result name="success">/WEB-INF/jsp/jsonData.jsp</result>
+    	</action>
+    </package>
+</struts>

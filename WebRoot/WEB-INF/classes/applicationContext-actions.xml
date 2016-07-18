@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+           
+    <bean id="exit" class="com.techpark.cm.action.ExitAction"></bean>
+	<bean id="noticeAction" class="com.techpark.cm.action.NoticeAction">
+		<property name="noticeService" ref="noticeService"/>
+		<property name="imageService" ref="imageService"/>
+	</bean>
+	<bean id="loginAction" class="com.techpark.cm.action.LoginAction">
+		<property name="userService" ref="userService"/>
+		<property name="messageService" ref="messageService"/>
+	</bean>
+	<bean id="userAction" class="com.techpark.cm.action.UserAction">
+		<property name="userService" ref="userService"/>
+		<property name="messageService" ref="messageService"/>
+	</bean>
+	<bean id="messageAction" class="com.techpark.cm.action.MessageAction">
+		<property name="messageService" ref="messageService"/>
+		<property name="userService" ref="userService"/>
+	</bean>
+	<bean id="elementAction" class="com.techpark.cm.action.ElementAction">
+		<property name="elementService" ref="elementService"/>
+		<property name="typeService" ref="typeService"/>
+		<property name="lockerService" ref="lockerService"/>
+	</bean>
+	<bean id="borrowAction" class="com.techpark.cm.action.BorrowAction">
+		<property name="userService" ref="userService"/>
+		<property name="messageService" ref="messageService"/>
+		<property name="tempBorrowService" ref="tempBorrowService"/>
+		<property name="elementService" ref="elementService"/>
+		<property name="passBorrowService" ref="passBorrowService"/>
+		<property name="refuseBorrowService" ref="refuseBorrowService"/>
+	</bean>
+	<bean id="typeAction" class="com.techpark.cm.action.TypeAction">
+		<property name="typeService" ref="typeService"/>
+	</bean>
+	<bean id="porAction" class="com.techpark.cm.action.PorAction">
+		<property name="typeService" ref="typeService"/>
+		<property name="userService" ref="userService"/>
+		<property name="tempElementService" ref="tempElementService"/>
+		<property name="tempPorService" ref="tempPorService"/>
+		<property name="messageService" ref="messageService"/>
+		<property name="passPorService" ref="passPorService"/>
+		<property name="refusePorService" ref="refusePorService"/>
+	</bean>
+	<bean id="auditAction" class="com.techpark.cm.action.AuditAction">
+		<property name="userService" ref="userService"/>
+		<property name="messageService" ref="messageService"/>
+		<property name="tempBorrowService" ref="tempBorrowService"/>
+		<property name="tempPorService" ref="tempPorService"/>
+		<property name="passBorrowService" ref="passBorrowService"/>
+		<property name="passPorService" ref="passPorService"/>
+		<property name="refuseBorrowService" ref="refuseBorrowService"/>
+		<property name="refusePorService" ref="refusePorService"/>
+		<property name="elementService" ref="elementService"/>
+	</bean>
+	<bean id="lockerAction" class="com.techpark.cm.action.LockerAction">
+		<property name="lockerService" ref="lockerService"/>
+	</bean>
+	<bean id="imageAction" class="com.techpark.cm.action.ImageAction">
+		<property name="imageService" ref="imageService"/>
+	</bean>
+</beans>

@@ -1,0 +1,42 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tpcmsystem</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">911022</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- 使用C3P0来实现连接池管理 -->
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.min_size">1</property>
+		<property name="hibernate.c3p0.timeout">1800</property>
+		<property name="hibernate.c3p0.max_statements">0</property>
+		<property name="hibernate.c3p0.acquire_increment">2</property>
+		<property name="hibernate.c3p0.testConnectionOnCheckout">false</property>
+		<property name="hibernate.c3p0.idleConnectionTestPeriod">60</property>
+		<property name="hibernate.c3p0.acquireRetryAttempts">30</property>
+		<property name="hibernate.c3p0.breakAfterAcquireFailure">true</property>
+
+		<mapping resource="com/techpark/cm/domain/User.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/Post.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/Notice.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/Element.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/Type.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/Locker.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/TempBorrow.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/PassBorrow.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/RefuseBorrow.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/TempElement.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/TempPor.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/RefusePor.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/PassPor.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/Message.hbm.xml"/>
+		<mapping resource="com/techpark/cm/domain/Image.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>
